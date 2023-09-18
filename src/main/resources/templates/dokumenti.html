@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studentski zbor | Dokumenti</title>
+    <link rel="stylesheet" href="/static/css/dokumenti.css">
+
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="/static/images/round_mev.png" alt="MEV">
+
+        <nav class="navigation">
+
+            <a href="pocetna">Naslovnica</a>
+            <a href="novosti">Novosti</a>
+            <a href="clanovi">Članovi</a>
+            <a href="dokumenti">Dokumenti</a>
+            <a href="kontakt">Kontakt</a>
+            <a href="prijava"><button class="btnLogin-popup">Odjava</button></a>
+        </nav>
+    </header>
+
+    <div class="transbox1">
+        <div>
+            <h2>Prenesi PDF datoteke</h2>
+
+            <form method="POST" enctype="multipart/form-data" action="/dokumenti/upload">
+                <input type="file" name="file" accept="application/pdf" required>
+                <br>
+                <input type="submit" value="Upload" class="button_preuzmi">
+            </form>
+
+            <h2>Dokumenti studentskog zbora:</h2>
+            <table>
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr th:each="pdfFile : ${pdfFiles}">
+                    <td th:text="${pdfFile.filename}"></td>
+                    <td><a th:href="@{/dokumenti/download/{filename}(filename=${pdfFile.filename})}"><button class="button_preuzmi">Preuzmi</button></a>
+				    <td><a th:href="@{/dokumenti/delete/{pdfId}(pdfId=${pdfFile.id})}"><button class="button_brisi">Briši</button></a></td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>

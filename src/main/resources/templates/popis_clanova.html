@@ -1,0 +1,51 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studentski zbor | Članovi</title>
+    
+     <link rel="stylesheet" href="/static/css/clanovi.css">
+ 
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="/static/images/round_mev.png" alt="MEV">
+       
+        <nav class="navigation">
+          
+            <a href="pocetna">Naslovnica</a>
+            <a href="novosti">Novosti</a>         
+            <a href="clanovi">Članovi</a>
+             
+            <a href="kontakt">Kontakt</a>
+            <a href="prijava"><button class="btnLogin-popup">Odjava</button></a>
+        </nav>
+  		 </header>
+  		 
+     <div class="container">
+      
+        <div th:each="clan : ${clanovi}" class="card">
+            <div class="card-image">
+                <img th:src="@{/static/images/edu.png}" alt="Profile image">
+            </div>
+            <p class="name" th:text="${clan.ime + ' ' + clan.prezime}"></p>
+            <p th:text="${clan.email}"></p>
+            <p th:text="${clan.studijski_program}"></p>
+            <p th:text="${clan.funkcija}"></p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur delectus, mollitia tenetur libero quam recusandae alias in incidunt.</p>
+        </div>
+    </div>
+
+
+
+   
+    
+  </body>
+
+</html>

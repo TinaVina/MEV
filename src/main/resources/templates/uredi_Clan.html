@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studentski zbor | Uredi član</title>
+    
+     <link rel="stylesheet" href="/static/css/uredi.css">
+ 
+</head>
+<body>
+
+ <!--  <header>
+        <img class="logo" src="/static/images/round_mev.png" alt="MEV">
+       
+        <nav class="navigation">
+          
+            <a href="pocetna">Naslovnica</a>
+            <a href="novosti">Novosti</a>         
+            <a href="clanovi">Članovi</a>
+            <a href="dokumenti">Dokumenti</a>
+            <a href="kontakt">Kontakt</a>
+            <a href="prijava"><button class="btnLogin-popup">Odjava</button></a>
+        </nav>
+    </header>
+-->
+ <div align="center">
+    <div class="transbox1">
+ 
+<h1>Uredi član</h1>
+<br />
+<form action="#" th:action="@{/clanovi/uredi}" th:object="${clan}" method="post">
+ <table border="0" cellpadding="10">
+
+ <tr>
+<td>ID: </td>
+<td>
+ <input type="text" th:field="*{id_clan}" readonly="readonly" />
+</td>
+ </tr>
+
+
+
+<tr>
+<td>Ime:</td>
+<td><input type="text" th:field="*{ime}" required/></td>
+</tr>
+<tr>
+<td>Prezime:</td>
+<td><input type="text" th:field="*{prezime}" required/></td>
+</tr>
+
+<tr>
+<td>Email:</td>
+<td><input type="email" th:field="*{email}" required/></td>
+</tr>
+<tr>
+
+<td>Lozinka:</td>
+<td><input type=text th:field="*{password}" required/></td>
+</tr>
+
+<tr>
+    <td>Studijski program:</td>
+    <td>
+        <select th:field="*{studijski_program}">
+            <option value="Računarstvo">Računarstvo</option>
+            <option value="Menadžment turizma i sporta">Menadžment turizma i sporta</option>
+            <option value="Održivi razvoj">Održivi razvoj</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td>Status:</td>
+    <td>
+        <select th:field="*{status}">
+            <option value="Redovni">Redovni</option>
+            <option value="Izvanredni">Izvanredni</option>
+            
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td>Funkcija u zboru:</td>
+    <td>
+        <select th:field="*{funkcija}">
+            <option value="član">Član</option>
+            <option value="zamjenik">Zamjenik</option>
+            <option value="predsjednik">Predsjednik</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td>Funkcija korisnika:</td>
+    <td>
+        <select th:field="*{role}">
+            <option value="član">Član</option>
+            <option value="admin">Admin</option>
+        </select>
+    </td>
+</tr>
+
+ <tr>
+ <td colspan="2"><button class=button type="submit">Snimi</button> </td>
+ </tr>
+
+</table>
+
+
+ </form>
+ </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studentski zbor | Nova novost</title>
+    
+    <link rel="stylesheet" href="/static/css/uredi.css">
+</head>
+<body>
+   <!--  <header>
+        <img class="logo" src="/static/images/round_mev.png" alt="MEV">
+       
+        <nav class="navigation">
+          
+            <a href="pocetna">Naslovnica</a>
+            <a href="novosti">Novosti</a>         
+            <a href="clanovi">Članovi</a>
+            <a href="dokumenti">Dokumenti</a>
+            <a href="kontakt">Kontakt</a>
+            <a href="prijava"><button class="btnLogin-popup">Odjava</button></a>
+        </nav>
+    </header>
+-->
+    <div align="center">
+        <div class="transbox1">
+            <h1>Dodaj novu novost</h1>
+            <br />
+           <form action="/novosti/nova" th:action="@{/novosti/nova}" th:object="${novost}" method="post">
+
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>Naslov:</td>
+                        <td><input type="text" th:field="*{naslov}" required/></td>
+                    </tr>
+                    <tr>
+                        <td>Opis:</td>
+                        <td><textarea th:field="*{opis}" required></textarea></td>
+                    </tr>
+
+                    <tr>
+                        <td>Datum:</td>
+                        <td><input type="date" th:field="*{datum}" required/></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><button id="check" class="button" type="submit">Dodaj</button> </td>
+                    </tr>
+
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+
+
+
+</html>
